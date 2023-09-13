@@ -2,6 +2,7 @@ import _ from 'lodash';
 import './nesto.less';
 
 console.log('aaaaaaa');
+console.log('bbbb');
 
 ///////////////////////////////////////
 // Code for homepage numbers incrementation

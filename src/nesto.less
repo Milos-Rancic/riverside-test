@@ -1,0 +1,115 @@
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.about_card-middle-left{
+  background: linear-gradient(143deg, rgba(0, 0, 0, 0.00) 0.01%, rgba(14, 14, 14, 0.40) 100%), #1D1D1D;
+}
+
+
+/***********************************
+          Swiper slider
+***********************************/
+.users_slider .swiper{
+  overflow-y: visible;
+}
+
+@media only screen and (max-width:767px){
+  .users_slider .swiper-slide{
+    width: 270px !important;
+  }
+}
+
+.users_slider .swiper-pagination-horizontal{
+  bottom: -2.5rem !important;
+}
+
+.swiper-pagination-bullet-active{
+  background: #000;
+}
+
+.swiper-pagination-bullet{
+  transition: all 0.2s;
+  transform: scale(0.5);
+}
+
+.swiper-pagination-bullet-active,
+.swiper-pagination-bullet-active + .swiper-pagination-bullet,
+.swiper-pagination-bullet:has(+ .swiper-pagination-bullet-active) {
+transform: scale(1);
+}
+
+.swiper-pagination-bullet:has(+ .swiper-pagination-bullet + .swiper-pagination-bullet-active) {
+transform: scale(0.7);
+}
+.swiper-pagination-bullet-active + .swiper-pagination-bullet + .swiper-pagination-bullet{
+transform: scale(0.7);
+}
+
+.swiper-pagination-bullet-active + .swiper-pagination-bullet + .swiper-pagination-bullet + .swiper-pagination-bullet{
+  transform: scale(0.5);
+}
+
+/***********************************
+          CTA small
+***********************************/
+.section_cta-small {
+  background-image: url("https://uploads-ssl.webflow.com/5fa1476e0ccba3bcfafdb091/64de66b63f38a03c37dffe66_cta%20background%201.svg"), 
+                    url("https://uploads-ssl.webflow.com/5fa1476e0ccba3bcfafdb091/64de66b67da283319276dae2_cta%20background%202.svg"), 
+                    url("https://uploads-ssl.webflow.com/5fa1476e0ccba3bcfafdb091/64de66b64d37446bf95713ea_cta%20background%203.svg"), 
+                    url("https://uploads-ssl.webflow.com/5fa1476e0ccba3bcfafdb091/64de66b6dc0f578cb556da55_cta%20background%204.svg"), 
+                    url("https://uploads-ssl.webflow.com/5fa1476e0ccba3bcfafdb091/64de66b6931c1e05b29ad03a_cta%20background%205.svg");
+  background-position: 87.6vw 88px, 90.5vw 3px, 140px 73px, 0 84px, 85px 0;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: auto, auto, auto, auto, auto;
+}
+
+@media only screen and (max-width:767px){
+  .section_cta-small{
+      background-image: url("https://uploads-ssl.webflow.com/5fa1476e0ccba3bcfafdb091/64de66b63f38a03c37dffe66_cta%20background%201.svg"), 
+                        url("https://uploads-ssl.webflow.com/5fa1476e0ccba3bcfafdb091/64de66b64d37446bf95713ea_cta%20background%203.svg");
+      background-position: 20px 127px, 85.6vw 66px;
+      background-repeat: no-repeat, no-repeat;
+      background-size: auto, auto;
+  }
+}
+
+
+/***********************************
+        Marquee sliders
+***********************************/
+.sliders_top-track {
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee-horizontal 30s linear infinite;
+  /* manipulate the speed of the marquee by changing "30s" line above*/
+}
+
+.sliders_bottom-track {
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee-horizontal-reverse 45s linear infinite; 
+  /* manipulate the speed of the marquee by changing "45s" line above*/
+}
+
+@keyframes marquee-horizontal-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes marquee-horizontal {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.sliders_top-track:hover,
+.sliders_bottom-track:hover{
+  animation-play-state: paused;
+}
+

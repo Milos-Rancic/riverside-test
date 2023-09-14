@@ -1,4 +1,7 @@
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const isDev = process.env.NODE_ENV;
 
@@ -16,8 +19,13 @@ module.exports = {
     static: './dist',
   },
   optimization: {
-    runtimeChunk: 'single',
+    minimize: true,
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new TerserPlugin()
+    ],
   },
+  plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
@@ -29,6 +37,7 @@ module.exports = {
         test: /\.less$/i,
         use: [
           // compiles Less to CSS
+          MiniCssExtractPlugin.loader,
           "style-loader",
           "css-loader",
           "less-loader",
